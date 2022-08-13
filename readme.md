@@ -18,3 +18,5 @@ domain/task.go -> usecase/task_repository.go -> usecase/task_interactor.go
 https://github.com/yumekiti/go-clean-architecture-example
 
 https://github.com/yumekiti/roadmap-back
+
+https://github.com/ryokky59/go-layered-architecture-sample
