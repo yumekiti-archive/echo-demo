@@ -7,7 +7,7 @@ import (
 
 // TaskUsecase task usecaseのinterface
 type TaskUsecase interface {
-	Create(title, content string) (*model.Task, error)
+	Create(title, content string, status bool) (*model.Task, error)
 	FindByID(id int) (*model.Task, error)
 	Update(id int, title, content string) (*model.Task, error)
 	Delete(id int) error
@@ -23,7 +23,7 @@ func NewTaskUsecase(taskRepo repository.TaskRepository) TaskUsecase {
 }
 
 // Create taskを保存するときのユースケース
-func (tu *taskUsecase) Create(title, content string) (*model.Task, error) {
+func (tu *taskUsecase) Create(title, content string, status bool) (*model.Task, error) {
 	task, err := model.NewTask(title, content)
 	if err != nil {
 		return nil, err
