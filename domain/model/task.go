@@ -3,7 +3,7 @@ package model
 import (
 	"errors"
 
-	"github.com/yumekiti/echo-demo/entity"
+	"github.com/yumekiti/echo-demo/domain/entity"
 )
 
 // NewTask taskのコンストラクタ
