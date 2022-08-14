@@ -1,4 +1,4 @@
-package infra
+package infrastructure
 
 import (
 	"github.com/yumekiti/echo-demo/domain/model"
