@@ -48,7 +48,7 @@ func (tr *taskRepository) FindByID(id int) (*model.Task, error) {
 
 // Update taskの更新
 func (tr *taskRepository) Update(task *model.Task) (*model.Task, error) {
-	if err := tr.Conn.Model(&task).Update(&task).Error; err != nil {
+	if err := tr.Conn.Save(&task).Error; err != nil {
 		return nil, err
 	}
 
