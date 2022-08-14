@@ -1,6 +1,6 @@
 # echo
 
-## コーディング手順
+## 依存関係
 
 - domain
   - entity
