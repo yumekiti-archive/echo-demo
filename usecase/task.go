@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"sample/domain/model"
-	"sample/domain/repository"
+	"github.com/yumekiti/echo-demo/domain/model"
+	"github.com/yumekiti/echo-demo/domain/repository"
 )
 
 // TaskUsecase task usecaseのinterface
