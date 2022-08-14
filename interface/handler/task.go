@@ -99,7 +99,7 @@ func (th *taskHandler) Put() echo.HandlerFunc {
 			return c.JSON(http.StatusBadRequest, err.Error())
 		}
 
-		updatedTask, err := th.taskUsecase.Update(id, req.Title, req.Context)
+		updatedTask, err := th.taskUsecase.Update(id, req.Title, req.Context, req.Status)
 		if err != nil {
 			return c.JSON(http.StatusBadRequest, err.Error())
 		}

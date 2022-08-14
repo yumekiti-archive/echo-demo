@@ -10,7 +10,7 @@ import (
 type TaskUsecase interface {
 	Create(title, content string, status bool) (*entity.Task, error)
 	FindByID(id int) (*entity.Task, error)
-	Update(id int, title, content string) (*entity.Task, error)
+	Update(id int, title, content string, status bool) (*entity.Task, error)
 	Delete(id int) error
 }
 
@@ -49,7 +49,7 @@ func (tu *taskUsecase) FindByID(id int) (*entity.Task, error) {
 }
 
 // Update taskを更新するときのユースケース
-func (tu *taskUsecase) Update(id int, title, content string) (*entity.Task, error) {
+func (tu *taskUsecase) Update(id int, title, content string, status bool) (*entity.Task, error) {
 	targetTask, err := tu.taskRepo.FindByID(id)
 	if err != nil {
 		return nil, err
