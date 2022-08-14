@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/yumekiti/echo-demo/domain/model"
+	"github.com/yumekiti/echo-demo/domain/entity"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -14,7 +14,7 @@ func NewDB() *gorm.DB {
 		panic(err)
 	}
 
-	db.AutoMigrate(model.Task{})
+	db.AutoMigrate(entity.Task{})
 
 	return db
 }

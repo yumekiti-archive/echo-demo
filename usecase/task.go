@@ -1,15 +1,16 @@
 package usecase
 
 import (
+	"github.com/yumekiti/echo-demo/domain/entity"
 	"github.com/yumekiti/echo-demo/domain/model"
 	"github.com/yumekiti/echo-demo/domain/repository"
 )
 
 // TaskUsecase task usecaseのinterface
 type TaskUsecase interface {
-	Create(title, content string, status bool) (*model.Task, error)
-	FindByID(id int) (*model.Task, error)
-	Update(id int, title, content string) (*model.Task, error)
+	Create(title, content string, status bool) (*entity.Task, error)
+	FindByID(id int) (*entity.Task, error)
+	Update(id int, title, content string) (*entity.Task, error)
 	Delete(id int) error
 }
 
@@ -23,7 +24,7 @@ func NewTaskUsecase(taskRepo repository.TaskRepository) TaskUsecase {
 }
 
 // Create taskを保存するときのユースケース
-func (tu *taskUsecase) Create(title, content string, status bool) (*model.Task, error) {
+func (tu *taskUsecase) Create(title, content string, status bool) (*entity.Task, error) {
 	task, err := model.NewTask(title, content)
 	if err != nil {
 		return nil, err
@@ -38,7 +39,7 @@ func (tu *taskUsecase) Create(title, content string, status bool) (*model.Task, 
 }
 
 // FindByID taskをIDで取得するときのユースケース
-func (tu *taskUsecase) FindByID(id int) (*model.Task, error) {
+func (tu *taskUsecase) FindByID(id int) (*entity.Task, error) {
 	foundTask, err := tu.taskRepo.FindByID(id)
 	if err != nil {
 		return nil, err
@@ -48,13 +49,13 @@ func (tu *taskUsecase) FindByID(id int) (*model.Task, error) {
 }
 
 // Update taskを更新するときのユースケース
-func (tu *taskUsecase) Update(id int, title, content string) (*model.Task, error) {
+func (tu *taskUsecase) Update(id int, title, content string) (*entity.Task, error) {
 	targetTask, err := tu.taskRepo.FindByID(id)
 	if err != nil {
 		return nil, err
 	}
 
-	err = targetTask.Set(title, content)
+	err = model.Set(title, content)
 	if err != nil {
 		return nil, err
 	}

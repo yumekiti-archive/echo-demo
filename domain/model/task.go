@@ -6,16 +6,13 @@ import (
 	"github.com/yumekiti/echo-demo/domain/entity"
 )
 
-type Task entity.Task
-type Tasks entity.Tasks
-
 // NewTask taskのコンストラクタ
-func NewTask(title, context string) (*Task, error) {
+func NewTask(title, context string) (*entity.Task, error) {
 	if title == "" {
 		return nil, errors.New("titleを入力してください")
 	}
 
-	task := &Task{
+	task := &entity.Task{
 		Title:   title,
 		Context: context,
 	}
@@ -24,13 +21,10 @@ func NewTask(title, context string) (*Task, error) {
 }
 
 // Set taskのセッター
-func (t *Task) Set(title, context string) error {
+func Set(title, context string) error {
 	if title == "" {
 		return errors.New("titleを入力してください")
 	}
-
-	t.Title = title
-	t.Context = context
 
 	return nil
 }
