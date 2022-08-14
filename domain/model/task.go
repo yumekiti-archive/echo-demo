@@ -7,6 +7,7 @@ import (
 )
 
 type Task entity.Task
+type Tasks entity.Tasks
 
 // NewTask taskのコンストラクタ
 func NewTask(title, context string) (*Task, error) {
