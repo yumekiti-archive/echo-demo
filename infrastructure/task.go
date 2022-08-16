@@ -33,6 +33,13 @@ func (tr *taskRepository) Create(task *entity.Task) (*entity.Task, error) {
 	}
 
 	return task, nil
+
+	// 返す
+	// &{0 ほげ  false}
+
+	// &{1 ほげ  false}
+	// &{2 ふが  false}
+	// &{3 ぴよ  false}
 }
 
 // FindByID taskをIDで取得
